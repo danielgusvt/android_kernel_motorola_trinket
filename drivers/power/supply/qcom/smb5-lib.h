@@ -149,6 +149,7 @@ enum {
 	WEAK_ADAPTER_WA			= BIT(2),
 	USBIN_OV_WA			= BIT(3),
 	CHG_TERMINATION_WA		= BIT(4),
+	USBIN_ADC_WA			= BIT(5),
 };
 
 enum jeita_cfg_stat {
@@ -530,6 +531,7 @@ struct smb_charger {
 	struct mutex		smb_lock;
 	struct mutex		ps_change_lock;
 	struct mutex		dr_lock;
+	struct mutex            adc_lock;
 	struct mutex		irq_status_lock;
 	spinlock_t		typec_pr_lock;
 	struct mutex		dcin_aicl_lock;
