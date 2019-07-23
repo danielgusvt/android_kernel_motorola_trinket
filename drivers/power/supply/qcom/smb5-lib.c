@@ -5693,7 +5693,8 @@ void smblib_usb_plugin_locked(struct smb_charger *chg)
 			chg->mmi.factory_kill_armed = false;
 	}
 
-	if (chg->connector_type == POWER_SUPPLY_CONNECTOR_MICRO_USB)
+	if (chg->connector_type == POWER_SUPPLY_CONNECTOR_MICRO_USB ||
+	    chg->typec_mode == POWER_SUPPLY_TYPEC_NONE)
 		smblib_micro_usb_plugin(chg, vbus_rising);
 
 	vote(chg->temp_change_irq_disable_votable, DEFAULT_VOTER,
