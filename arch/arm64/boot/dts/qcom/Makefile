@@ -75,13 +75,13 @@ dtb-$(CONFIG_ARCH_SM6150)	+= sa6155-adp-star.dtb \
 
 endif
 else
-dtb-$(CONFIG_ARCH_QCOM)	+= apq8016-sbc.dtb
-dtb-$(CONFIG_ARCH_QCOM)	+= apq8096-db820c.dtb
-dtb-$(CONFIG_ARCH_QCOM)	+= ipq8074-hk01.dtb
-dtb-$(CONFIG_ARCH_QCOM)	+= msm8916-mtp.dtb
-dtb-$(CONFIG_ARCH_QCOM)	+= msm8992-bullhead-rev-101.dtb
-dtb-$(CONFIG_ARCH_QCOM)	+= msm8994-angler-rev-101.dtb
-dtb-$(CONFIG_ARCH_QCOM)	+= msm8996-mtp.dtb
+# dtb-$(CONFIG_ARCH_QCOM)	+= apq8016-sbc.dtb
+# dtb-$(CONFIG_ARCH_QCOM)	+= apq8096-db820c.dtb
+# dtb-$(CONFIG_ARCH_QCOM)	+= ipq8074-hk01.dtb
+# dtb-$(CONFIG_ARCH_QCOM)	+= msm8916-mtp.dtb
+# dtb-$(CONFIG_ARCH_QCOM)	+= msm8992-bullhead-rev-101.dtb
+# dtb-$(CONFIG_ARCH_QCOM)	+= msm8994-angler-rev-101.dtb
+# dtb-$(CONFIG_ARCH_QCOM)	+= msm8996-mtp.dtb
 dtb-$(CONFIG_ARCH_QCS403) += qcs403-iot-sku1.dtb \
 			qcs403-iot-sku3.dtb \
 			qcs403-iot-sku5.dtb \
@@ -423,6 +423,9 @@ dtb-$(CONFIG_ARCH_MDM9607) += mdm9607-cdp.dtb \
         mdm9607-mtp.dtb \
 	mdm9607-rcm.dtb \
 
+ifeq ($(CONFIG_CHEF_DTB),y)
+dtb-$(CONFIG_ARCH_SDM636) += sdm636-chef-evt.dtb
+else
 ifeq ($(CONFIG_BUILD_ARM64_DT_OVERLAY),y)
 	dtbo-$(CONFIG_ARCH_SDM660) += \
 		sdm660-mtp-external-codec-overlay.dtbo \
@@ -456,12 +459,7 @@ sda660-cdp-external-codec-overlay.dtbo-base := sda660-pm660l.dtb
 
 sda660-rcm-external-codec-overlay.dtbo-base := sda660-pm660l.dtb
 else
-
-ifeq ($(CONFIG_CHEF_DTB),y)
-dtb-$(CONFIG_ARCH_SDM636) += sdm636-chef-evt.dtb
-endif
-
-dtb-$(CONFIG_ARCH_SDM660) += sdm660-sim.dtb \
+#dtb-$(CONFIG_ARCH_SDM660) += sdm660-sim.dtb \
 	sdm660-internal-codec-cdp.dtb \
 	sdm660-internal-codec-mtp.dtb \
 	sdm660-internal-codec-rcm.dtb \
@@ -518,7 +516,6 @@ dtb-$(CONFIG_ARCH_SDM660) += sdm660-sim.dtb \
 	sda636-pm660a-qrd-hdk.dtb \
 	sda636-pm660a-rcm.dtb
 endif
-endif
 
 ifeq ($(CONFIG_BUILD_ARM64_DT_OVERLAY),y)
         dtbo-$(CONFIG_ARCH_SDM429W) += sdm429-wtp-overlay.dtbo\
@@ -567,3 +564,4 @@ dtbs: $(addprefix $(obj)/../,$(dtb-y))
 endif
 endif
 clean-files	:= *.dtb *.dtbo
+endif
