@@ -25,10 +25,10 @@
 #include <linux/sizes.h>
 #include <soc/qcom/scm.h>
 #include <soc/qcom/secure_buffer.h>
-#include <msm_camera_tz_util.h>
 #include <linux/ion_kernel.h>
 #include <linux/sched.h>
-#include<linux/cpumask.h>
+#include <linux/cpumask.h>
+#include "msm_camera_tz_util.h"
 #include "cam_smmu_api.h"
 
 #define SCRATCH_ALLOC_START SZ_128K
