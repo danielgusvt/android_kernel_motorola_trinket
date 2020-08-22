@@ -23,11 +23,10 @@
 			compatible = "removed-dma-pool", "ramoops";
 			no-map;
 			reg = <0x0 0xaf000000 0x0 0xC0000>;
-			record-size = <0x3f800>;
-			console-size = <0x40000>;
-			ftrace-size = <0x10000>;
-			pmsg-size = <0x40000>;
-			ecc-size = <16>; /* Checkme */
+			console-size = <0x0 0x40000>;
+			record-size = <0x0 0x3f800>;
+			ramoops-annotate-size = <0x0 0x800>;
+			pmsg-size = <0x0 0x40000>;
 		};
 
 		tzlog_bck_mem: tzlog_bck_region {
