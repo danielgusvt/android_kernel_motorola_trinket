@@ -13,12 +13,11 @@
 #include "sdm636-mtp.dtsi"
 #include "sdm660-moto-pinctrl.dtsi"
 #include "carrier-channel-ids.dtsi"
-#include <moto-mem-reserve.h>
+#include <dt-bindings/moto/moto-mem-reserve.h>
 
 / {
 	reserved-memory {
-		ramoops 
-		{
+		ramoops {
 			status = "ok";
 			compatible = "removed-dma-pool", "ramoops";
 			no-map;
