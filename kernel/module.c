@@ -1288,6 +1288,9 @@ static int check_version(const struct load_info *info,
 	unsigned int i, num_versions;
 	struct modversion_info *versions;
 
+	if(!strncmp("focaltech_0flash_mmi", mod->name, 20))
+		return 0;
+
 	/* Exporting module didn't supply crcs?  OK, we're already tainted. */
 	if (!crc)
 		return 1;
